@@ -5,7 +5,10 @@ Reference: [https://polyu-comp.gitbook.io/lamp-stack-with-docker/](https://polyu
 
 Since the example contains  Apache, MySql 8.0, PhpMyAdmin and Php 7.3
 
-1. Clone thie repository
+VS Code extension
+[https://marketplace.visualstudio.com/items?itemName=github.remotehub](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
+
+1. Clone the repository
 ```
 git clone https://github.com/lossfuture/comp3335-group15/
 ```
