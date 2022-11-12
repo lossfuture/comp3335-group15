@@ -1,0 +1,5 @@
+Testing application
+<?php
+
+phpinfo();
+?>
