@@ -27,6 +27,9 @@ docker-compose up
 ```
 docker ps
 ```
+5. then type localhost:8000 for phpmyadmin and  localhost:8001 for php file, to check where it is successful
+
+6. shut down by press control-C
 ---
 # Run linux script reference
 
