@@ -12,7 +12,9 @@ VS Code extension
 ```
 git clone https://github.com/lossfuture/comp3335-group15/
 ```
-2. Docker Compose after pull 
+2. cd into folder
+
+3. Docker Compose after pull 
 ```
 docker-compose up -d
 ```
