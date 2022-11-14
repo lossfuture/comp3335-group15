@@ -42,3 +42,7 @@ edit mysql root password,
 force password changes, etc.
 
 [https://ithelp.ithome.com.tw/articles/10191016?sc=hot](https://ithelp.ithome.com.tw/articles/10191016?sc=hot)
+
+
+
+//yankakit
