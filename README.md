@@ -45,5 +45,10 @@ force password changes, etc.
 
 ----
 References :
-[https://github.com/shravasam/ONLINE_SALES_WEBSITE] (https://github.com/shravasam/ONLINE_SALES_WEBSITE)
+
+ONLINE_SALES_WEBSITE
+[https://github.com/shravasam/ONLINE_SALES_WEBSITE](https://github.com/shravasam/ONLINE_SALES_WEBSITE)
+
+Simple blog (for PHP PDO)
+[https://github.com/dcblogdev/simple-blog-part-1-build](https://github.com/dcblogdev/simple-blog-part-1-build)
 
