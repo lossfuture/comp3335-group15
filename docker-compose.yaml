@@ -30,7 +30,7 @@ services:
             PMA_HOST: 'db'
             PMA_PORT: '3306'
             PMA_USER: 'root'
-            PMA_PASSWORD: "BtnZ^$fjd8$ckypa"
+            PMA_PASSWORD: "Ip38w#*5tA%hwJLy"
         depends_on:
             - db
             
