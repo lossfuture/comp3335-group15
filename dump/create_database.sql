@@ -96,3 +96,7 @@ GRANT DELETE, SELECT ON comp3335.* TO 'admin'@'localhost';
 
 create role 'user'@'localhost';
 GRANT INSERT ON comp3335.products TO 'user'@'localhost';
+
+SET global general_log = on;
+SET global general_log_file='/log/mysql/mysql.log';
+SET global log_output = 'file'; 
