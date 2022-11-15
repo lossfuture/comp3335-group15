@@ -1,5 +1,5 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
---SET time_zone = "+08:00";
+SET time_zone = "+08:00";
 
 --
 -- Create table 'user'
@@ -11,7 +11,7 @@ CREATE TABLE 'users' (
   'password' varchar(155) NOT NULL,
   'credit_card_no.' varchar(30) NOT NULL,
   PRIMARY KEY ('id')
-) ENGINE=InnoDB;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Insert value into table 'users'
@@ -39,7 +39,7 @@ CREATE TABLE 'orders' (
   'quantity' int(20) NOT NULL,
   'price' float NOT NULL,
   PRIMARY KEY ('id')
-) ENGINE=InnoDB
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Insert value into table 'orders'
@@ -65,7 +65,7 @@ CREATE TABLE 'products' (
   'product' varchar(20) NOT NULL,
   'price' int(20) NOT NULL,
   PRIMARY KEY ('id')
-) ENGINE=InnoDB
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Insert value into table 'products'
@@ -79,7 +79,7 @@ INSERT INTO 'products' ('id', 'image', 'category', 'product', 'price') VALUES
 (33, 'laptop.jpg', 'APPLE', 'MACBOOK_2019', 2903),
 (34, 'laptop.jpg', 'TOHIBA', 'THOSI_2019', 889);
 
-
+COMMIT;
 --
 -- AUTO_INCREMENT in table 'products'
 --
@@ -97,6 +97,10 @@ GRANT DELETE, SELECT ON comp3335.* TO 'admin'@'localhost';
 create role 'user'@'localhost';
 GRANT INSERT ON comp3335.products TO 'user'@'localhost';
 
+FLUSH PRIVILEGES;
+
 SET global general_log = on;
 SET global general_log_file='/log/mysql/mysql.log';
 SET global log_output = 'file'; 
+
+COMMIT;
