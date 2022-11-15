@@ -85,16 +85,15 @@ INSERT INTO `products` (`id`, `image`, `category`, `product`, `price`) VALUES
 --
 ALTER TABLE `products`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
+
+commit;
 -- create role
-/*
+
 CREATE ROLE `admin`@`localhost`;
-GRANT DELETE, INSERT, SELECT ON comp3335.user TO `admin`@`localhost`;
-GRANT DELETE, INSERT, SELECT ON comp3335.user TO `admin`@`localhost`;
+GRANT DELETE, INSERT, SELECT ON comp3335.users TO `admin`@`localhost`;
+GRANT DELETE, INSERT, SELECT ON comp3335.users TO `admin`@`localhost`;
 
 create role `student`@`localhost`;
 GRANT INSERT ON comp3335.products TO `student`@`localhost`;
@@ -102,6 +101,14 @@ GRANT INSERT ON comp3335.products TO `student`@`localhost`;
 CREATE ROLE `manager`@`localhost`;
 GRANT SELECT, UPDATE, DELETE ON comp3335.orders TO `manager`@`localhost`;
 
+/*
+REVOKE ALL PRIVILEGES ON *.* FROM 'manager'@'localhost'; 
+REVOKE GRANT OPTION ON *.* FROM 'manager'@'localhost'; 
+GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO 'manager'@'localhost'; 
+ALTER USER 'manager'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+*/
+
+/*
 SET global general_log = on;
 SET global general_log_file=`/log/mysql/mysql.log`;
 SET global log_output = `file`; 
