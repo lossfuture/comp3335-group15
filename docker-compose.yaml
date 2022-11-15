@@ -10,12 +10,12 @@ services:
                 - db
     db:
         image: mysql
-        command: --default-authentication-plugin=mysql_native_password
+        command: --default-authentication-plugin=caching_sha2_password # change from caching_sha2_password
         environment:
-            MYSQL_ROOT_PASSWORD: test 
+            MYSQL_ROOT_PASSWORD: Ip38w#*5tA%hwJLy
             MYSQL_DATABASE: comp3335
             MYSQL_USER: user
-            MYSQL_PASSWORD: test
+            MYSQL_PASSWORD: 2d4h#AS
         ports: 
             - "33306:3306"        
         volumes:
@@ -30,7 +30,7 @@ services:
             PMA_HOST: 'db'
             PMA_PORT: '3306'
             PMA_USER: 'root'
-            PMA_PASSWORD: "test"
+            PMA_PASSWORD: "BtnZ^$fjd8$ckypa"
         depends_on:
             - db
             
