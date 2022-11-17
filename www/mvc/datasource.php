@@ -121,7 +121,6 @@ class datasource
     public function bindQueryParams($stmt, $paramType, $paramArray = array())
     {
         $paramValueReference[] = & $paramType;
-        echo $stmt;
         for ($i = 0; $i < count($paramArray); $i ++) {
             $paramValueReference[] = & $paramArray[$i];
         }
