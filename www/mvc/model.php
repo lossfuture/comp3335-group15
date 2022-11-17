@@ -15,7 +15,7 @@ class model
 
     public function isMemberExists($email)
     {
-        $query = 'SELECT * FROM tbl_member where email = ?';
+        $query = 'SELECT * FROM users where email = ?';
         $paramType = 's';
         $paramValue = array(
             $email
@@ -35,7 +35,7 @@ class model
             if (! empty($_POST["signup-password"])) {
                 $hashedPassword = password_hash($_POST["signup-password"], PASSWORD_DEFAULT);
             }
-            $query = 'INSERT INTO tbl_member (username, password, email) VALUES (?, ?, ?)';
+            $query = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
             $paramType = 'sss';
             $paramValue = array(
                 $_POST["username"],
@@ -54,7 +54,7 @@ class model
 
     public function getMember($username)
     {
-        $query = 'SELECT * FROM tbl_member where username = ?';
+        $query = 'SELECT * FROM users where username = ?';
         $paramType = 's';
         $paramValue = array(
             $username
