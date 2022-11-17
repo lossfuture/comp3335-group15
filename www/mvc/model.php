@@ -25,6 +25,7 @@ class model
         if (is_array($insertRecord)) {
             $count = count($insertRecord);
         }
+        
         return $count;
     }
 
@@ -34,17 +35,24 @@ class model
         if ($result < 1) {
             if (! empty($_POST["signup-password"])) {
                 $hashedPassword = password_hash($_POST["signup-password"], PASSWORD_DEFAULT);
+               // echo $hashedPassword; 
             }
-            $query = 'INSERT INTO users (username, password, email) VALUES (?, ?, ?)';
+            
+            $query = 'INSERT INTO users (id, username, email , password) VALUES (?, ?, ?)';
             $paramType = 'sss';
             $paramValue = array(
                 $_POST["username"],
-                $hashedPassword,
-                $_POST["email"]
+                $_POST["email"],
+                $hashedPassword
             );
+
             $memberId = $this->ds->insert($query, $paramType, $paramValue);
-            if(!empty($memberId)) {
+
+            if($memberId) {
                 $response = array("status" => "success", "message" => "You have registered successfully.");
+            }
+            else{
+                echo "having error";
             }
         } else if ($result == 1) {
             $response = array("status" => "error", "message" => "Email already exists.");
