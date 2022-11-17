@@ -15,7 +15,7 @@
 
 	// connect to database
 
-	$connect = mysqli_connect('localhost', 'root', '12581258', 'basket');
+	$connect = mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
 	if ($connect->connect_error) {
  	 die("Database connection failed: " . $connect->connect_error);
 	}
@@ -54,7 +54,7 @@ foreach($fields as $field) {
     $params[":$field"] = $_POST[$field];
 }
 
-$pdo = new PDO("mysql:host=localhost;dbname=basket", 'root', '12581258');
+$pdo = new PDO("mysql:host=db:3306;dbname=comp3335", 'root', 'Ip38w#*5tA%hwJLy');
 $sth = $pdo->prepare('
     INSERT INTO orders VALUES(:user, :category, :product, :quantity, :price);
 ');
