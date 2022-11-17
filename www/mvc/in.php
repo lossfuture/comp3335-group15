@@ -1,6 +1,4 @@
-<?php
-//connection to database
-  session_start();
+<?php session_start();
   $connect = mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
     if(isset($_POST["add_to_cart"]))
     {
