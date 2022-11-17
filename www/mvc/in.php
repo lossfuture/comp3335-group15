@@ -66,25 +66,29 @@
             {
               if($value["item_id"] == $_GET["id"])
               {
-                echo $item_array_id;
+                
+              //  var_dump($item_array_id);
               
-      //($_SESSION["shopping_cart"][$key]);
-      //mysqli_real_escape_string($connect, )                //echo $key;
-		$item= mysqli_real_escape_string($connect, $_POST['item_id']);	
-		//$username = mysqli_real_escape_string($connect, $_POST['usernam']);
-		//$total = mysqli_real_escape_string($connect, $_POST['total']);
-			$query = "INSERT INTO orders (item) 
-					  VALUES('$item')";
-      mysqli_query($connect, $query);
-      if($query){
-        echo $item_price;
+                //($_SESSION["shopping_cart"][$key]);
+                //mysqli_real_escape_string($connect, )                //echo $key;
+                $item= mysqli_real_escape_string($connect, $_POST['item_id']);	
+                //$username = mysqli_real_escape_string($connect, $_POST['usernam']);
+                //$total = mysqli_real_escape_string($connect, $_POST['total']);
+                  $query = "INSERT INTO orders (item) 
+                        VALUES('$item')";
+                  mysqli_query($connect, $query);
+                  if($query){
+                    echo $item_price;
+                    }
+                    else
+                  {
+                      echo 'not success';
+                    }
         }
-        else
-       {
-          echo 'not success';
-      	}
-}
-}}}
+
+      }
+    }
+  }
 
 
 ?>
