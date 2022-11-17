@@ -1,5 +1,7 @@
 <?php
 //check where user has admin privileges
+session_start();
+require_once('server_admin.php');
 
 ?>
 
