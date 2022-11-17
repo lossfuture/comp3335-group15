@@ -33,7 +33,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
 -- create table `orders`
 --
 CREATE TABLE `orders` (
-  `id` int(20) NOT NULL,
+  `id` int(20) NOT NULL AUTO_INCREMENT,
   `category` varchar(20) NOT NULL,
   `product` varchar(20) NOT NULL,
   `quantity` int(20) NOT NULL,
@@ -59,7 +59,7 @@ INSERT INTO `orders` (`id`, `category`, `product`, `quantity`, `price`) VALUES
 --
 
 CREATE TABLE `products` (
-  `id` int(20) NOT NULL,
+  `id` int(20) NOT NULL AUTO_INCREMENT,
   `image` varchar(20) NOT NULL,
   `category` varchar(20) NOT NULL,
   `product` varchar(20) NOT NULL,
