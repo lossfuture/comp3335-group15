@@ -38,16 +38,16 @@ class model
                // echo $hashedPassword; 
             }
             
-            $query = 'INSERT INTO users (id, username, email , password) VALUES (?, ?, ?)';
-            $paramType = 'sss';
+            $query = 'INSERT INTO users (id, username, email , password) VALUES (?, ?, ?, ?)';
+            $paramType = 'isss';
             $paramValue = array(
+                50,
                 $_POST["username"],
                 $_POST["email"],
                 $hashedPassword
             );
 
             $memberId = $this->ds->insert($query, $paramType, $paramValue);
-
             if($memberId) {
                 $response = array("status" => "success", "message" => "You have registered successfully.");
             }
