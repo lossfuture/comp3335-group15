@@ -21,13 +21,13 @@ class datasource
 
     // PHP 7.1.0 visibility modifiers are allowed for class constants.
     // when using above 7.1.0, declare the below constants as private
-    const HOST = '127.0.0.1';
+    const HOST = 'db:3306';
 
     const USERNAME = 'root';
 
-    const PASSWORD = '12581258';
+    const PASSWORD = 'Ip38w#*5tA%hwJLy';
 
-    const DATABASENAME = 'user-registration';
+    const DATABASENAME = 'comp3335';
 
     private $conn;
 
@@ -64,14 +64,12 @@ class datasource
         return $conn;
     }
 
-    /**
-     * To get database results
-     *
-     * @param string $query
-     * @param string $paramType
-     * @param array $paramArray
-     * @return array
-     */
+/** 
+    *@param string $query
+    *@param string $paramType
+    *@param array $paramArray
+    *@return array
+*/
     public function select($query, $paramType = "", $paramArray = array())
     {
         $stmt = $this->conn->prepare($query);
@@ -94,14 +92,7 @@ class datasource
         }
     }
 
-    /**
-     * To insert
-     *
-     * @param string $query
-     * @param string $paramType
-     * @param array $paramArray
-     * @return int
-     */
+
     public function insert($query, $paramType, $paramArray)
     {
         $stmt = $this->conn->prepare($query);
@@ -112,13 +103,9 @@ class datasource
         return $insertId;
     }
 
-    /**
-     * To execute query
-     *
-     * @param string $query
-     * @param string $paramType
-     * @param array $paramArray
-     */
+
+    
+     
     public function execute($query, $paramType = "", $paramArray = array())
     {
         $stmt = $this->conn->prepare($query);
@@ -129,35 +116,20 @@ class datasource
         $stmt->execute();
     }
 
-    /**
-     * 1.
-     * Prepares parameter binding
-     * 2. Bind prameters to the sql statement
-     *
-     * @param string $stmt
-     * @param string $paramType
-     * @param array $paramArray
-     */
+
+     
     public function bindQueryParams($stmt, $paramType, $paramArray = array())
     {
         $paramValueReference[] = & $paramType;
+        echo $stmt;
         for ($i = 0; $i < count($paramArray); $i ++) {
             $paramValueReference[] = & $paramArray[$i];
         }
-        call_user_func_array(array(
-            $stmt,
-            'bind_param'
-        ), $paramValueReference);
+        call_user_func_array(array(& $stmt,'bind_param'), $paramValueReference);
     }
 
-    /**
-     * To get database results
-     *
-     * @param string $query
-     * @param string $paramType
-     * @param array $paramArray
-     * @return array
-     */
+
+    
     public function getRecordCount($query, $paramType = "", $paramArray = array())
     {
         $stmt = $this->conn->prepare($query);
