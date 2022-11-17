@@ -13,7 +13,6 @@
 <style>
 body {font-family:"Helvetica Neue", Helvetica, Arial;margin:0;padding:0;background:#FFF;padding-top:60px; padding-bottom:0px;}
 body,html{height:100%;width:100%}
-	
  </style>
 </head>
 <body>
