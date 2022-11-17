@@ -2,10 +2,7 @@
 
 //connection to database
  session_start();
-
-
-  //$connect = mysqli_connect('localhost','root','','cart');
-	$connect = mysqli_connect('127.0.0.1', 'root', '12581258', 'basket');
+	$connect = mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
 	echo "<h1>Hi   ".$_SESSION['username']." <br> welcome to portal <br> <h3>Here you can add/remove as many as products/quantity into basket<br></h3><br> <h4>please click on logout button once you had done shopping </h4></h1>";
 	//<a href="sales/logout.php">logout</a>
 
