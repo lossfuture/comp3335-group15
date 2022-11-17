@@ -1,7 +1,7 @@
 <?php
 //connection to database
   session_start();
-  $connect = mysqli_connect('127.0.0.1', 'root', '12581258', 'basket');
+  $connect = mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
     if(isset($_POST["add_to_cart"]))
     {
       if(isset($_SESSION["shopping_cart"]))
@@ -75,7 +75,7 @@
 		$item= mysqli_real_escape_string($connect, $_POST['item_id']);	
 		//$username = mysqli_real_escape_string($connect, $_POST['usernam']);
 		//$total = mysqli_real_escape_string($connect, $_POST['total']);
-			$query = "INSERT INTO orderstest (item) 
+			$query = "INSERT INTO orders (item) 
 					  VALUES('$item')";
       mysqli_query($connect, $query);
       if($query){
@@ -182,3 +182,4 @@
            <br />  
       </body>  
  </html>
+
