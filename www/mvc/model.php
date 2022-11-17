@@ -37,11 +37,11 @@ class model
                 $hashedPassword = password_hash($_POST["signup-password"], PASSWORD_DEFAULT);
                // echo $hashedPassword; 
             }
-            
+            $id_value = rand(100, 1111111);
             $query = 'INSERT INTO users (id, username, email , password) VALUES (?, ?, ?, ?)';
             $paramType = 'isss';
             $paramValue = array(
-                50,
+                $id_value,
                 $_POST["username"],
                 $_POST["email"],
                 $hashedPassword
