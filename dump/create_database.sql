@@ -128,7 +128,7 @@ CREATE USER 'manager1'@'localhost' IDENTIFIED BY '84968223aRh';
 GRANT 'manager' TO 'manager1'@'localhost';
 
 CREATE ROLE 'validator';
-GRANT SELECT ON comp3335.user TO 'validator';
+GRANT SELECT ON comp3335.users TO 'validator';
 GRANT SELECT ON comp3335.admin TO 'validator';
 CREATE USER 'validator1'@'localhost' IDENTIFIED BY '87fd89asf02';
 GRANT 'validator' TO 'validator1'@'localhost';
