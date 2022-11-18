@@ -8,6 +8,7 @@ class model
     {
        //require_once __DIR__ . '../mvc/datasource.php';
        require_once __DIR__ . '/../mvc/datasource.php';
+       require_once __DIR__.'/../mvc/model.php';
        //$config_path = __DIR__.'/../mvc/datasource.php';
        //require $config_path;
         $this->ds = new datasource();
@@ -34,17 +35,19 @@ class model
         $result = $this->isMemberExists($_POST["email"]);
         if ($result < 1) {
             if (! empty($_POST["signup-password"])) {
-                $hashedPassword = password_hash($_POST["signup-password"], PASSWORD_DEFAULT);
+                $salt = rand(1, 9999);
+                $hashedPassword = hash('sha256',$_POST["signup-password"] + $salt);
                // echo $hashedPassword; 
             }
-            $id_value = rand(100, 1111111);
-            $query = 'INSERT INTO users (id, username, email , password) VALUES (?, ?, ?, ?)';
-            $paramType = 'isss';
+            $id_value = null;
+            $query = 'INSERT INTO users (id, username, email , password, salt) VALUES (?, ?, ?, ?, ?)';
+            $paramType = 'isssi';
             $paramValue = array(
                 $id_value,
                 $_POST["username"],
                 $_POST["email"],
-                $hashedPassword
+                $hashedPassword,
+                $salt   
             );
 
             $memberId = $this->ds->insert($query, $paramType, $paramValue);
@@ -75,19 +78,22 @@ class model
     {
         $loginUserResult = $this->getMember($_POST["username"]);
         if (! empty($_POST["signup-password"])) {
+            
             $password = $_POST["signup-password"];
         }
         $hashedPassword = $loginUserResult[0]["password"];
+        $salt = $loginUserResult[0]["salt"];
+        $verify_password = hash('sha256',$password + $salt);
         $loginPassword = 0;
-        if (password_verify($password, $hashedPassword)) {
+        if ($verify_password == $hashedPassword) {
             $loginPassword = 1;
         }
         if ($loginPassword == 1) {
             $_SESSION["username"] = $loginUserResult[0]["username"];
-            $url = "/mvc/in.php";
-            //$loginurl = __DIR__.'/../mvc/in.php';
-            header("Location: " . $url);
-            exit();
+            //$url = "user/index.php";
+            $loginurl = __DIR__.'/../mvc/in.php';
+            require $loginurl;
+            header("Location: $loginurl");
         } else if ($loginPassword == 0) {
             $loginStatus = "Invalid username or password.";
             return $loginStatus;
