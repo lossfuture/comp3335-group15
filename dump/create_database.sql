@@ -45,7 +45,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `email`, `password`, `salt`) VALUES
-(1, 'kenny', 'kenny@admin.com', "88d658ed9cdc1a4cfa8d0971d0b5738f11caa0958d50c43ee4b6f1566cfc7aee", 1234),
+(1, 'kenny', 'kenny@admin.com', "a6c7ce3bde47a969e83a93f8a65788fae4013fdae454a3380751d1c568988433", 1234),
 (2, 'harry', 'harry@admin.com', "bff94628140f6c3216709c13ccdb2f07df2644e515b4d3dfc311e642c7d49930", 2345);
 
 --
