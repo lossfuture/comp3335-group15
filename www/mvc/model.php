@@ -99,9 +99,10 @@ class model
         }
         if ($loginPassword == 1) {
             $_SESSION["username"] = $loginUserResult[0]["username"];
+            setcookie("user","",time()+1800);
             //$url = "user/index.php";
-            $loginurl ='in.php';
-            require $loginurl; 
+            //$loginurl = __DIR__.'/../mvc/in.php';
+            $loginurl = "in.php";
             header("Location: $loginurl");
         } else if ($loginPassword == 0) {
             $loginStatus = "Invalid username or password.";
