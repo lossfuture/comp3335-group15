@@ -9,7 +9,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(155) NOT NULL,
-  `salt` varchar(155) NOT NULL,
+  `salt` int(4) NOT NULL,
  /* `credit_card_no` varchar(30) NOT NULL,*/
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
