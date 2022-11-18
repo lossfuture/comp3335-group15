@@ -46,9 +46,9 @@ body, html {
 }
 
 #Home {background-color: none;}
-#About us {background-color: none;}
+#Aboutus {background-color: none;}
 #Products {background-color: none;}
-#Login {background-color: #989898;}
+#Login {background-color: #B2B2B2;}
 .dropdown-submenu {
   position: relative;
 }
@@ -104,9 +104,9 @@ body, html {
   </div>
   <div id="Login" class="tabcontent"> 
       <h3> Please register here before placing any order</h3>
-        <a href= "user-registration-form.php">userRegistration</a>
-      <h3> Please login here if you had already registered with us</h3>
-        <a href="login-form.php">login</a>
+        <a href= "user-registration-form.php">New user registration</a>
+      <h3> Please login here if you already registered</h3>
+        <a href="login-form.php">Login</a>
       <h4> Click here to go back homepage</h4>
         <a href="home.php">Home</a>
   </div>
