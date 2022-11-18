@@ -17,24 +17,20 @@ CREATE TABLE `users` (
 -- Insert value into table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'bob', 'bob@example.fr', '26588e932c7ccfa1df309280702fe1b5'),
-(4, 'vsk', 'vsk@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(6, 'database', 'database@free.fr', '11e0eed8d3696c0a632f822df385ab3c'),
-(7, 'db', 'db@free.fr', 'd77d5e503ad1439f585ac494268b351b'),
-(9, 'admin', 'admin@free.fr', '21232f297a57a5a743894a0e4a801fc3'),
-(13, 'esigelec', 'esigelec@free.fr', '81dc9bdb52d04dc20036dbd8313ed055'),
-(14, 'kumar', 'kumar@gmail.com', '79cfac6387e0d582f83a29a04d0bcdc4'),
-(15, 'admins', 'admin@esigelec.fr', '2aefc34200a294a3cc7db81b43a81873'),
-(16, 'today', 'today@esigelec.fr', 'c5e7dfaf771d423ecf59b008369021e8'),
-(17, 'peter', 'peter@esigelec.fr', '51dc30ddc473d43a6011e9ebba6ca770');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`) VALUES
+(1, 'apple', 'apple@example.com', '46437ab18a6657040b4535297ff247b20c535c02263713f88b6a9e17484f1f3f', 1221),
+(2, 'banana', 'banana@example.com', 'f76cb816b3f74ecf30d387c64869038ac163fe26f8aabd727c1071dd567fc3d5', 1532),
+(3, 'car', 'car@example.com', '7ca26aafbfe189a20d2fed657ddcca8aa31581ee6838b90289c4faa4dd23fef8', 4325),
+(4, 'dog', 'dog@example.com', '48fe0661615dd0a2fc9cf1b77111613b4c3e7fc857b7bf89e472c233a0b35eb0', 2232),
+(5, 'edge', 'edge@example.com', 'b85bf0f7330be07933314afcfc04aa8e8bb33827eb03bdf2f65ff26fd32444f5', 3232),
+
 
 
 --
 -- create table 'admin'
 --
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(155) NOT NULL,
