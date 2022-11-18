@@ -36,7 +36,8 @@ class model
         if ($result < 1) {
             if (! empty($_POST["signup-password"])) {
                 $salt = rand(1, 9999);
-                $hashedPassword = hash('sha256',$_POST["signup-password"] + $salt);
+                
+                $hashedPassword = hash('sha256',$_POST["signup-password"] . strval($salt));
                // echo $hashedPassword; 
             }
             $id_value = null;
@@ -47,6 +48,7 @@ class model
                 $_POST["username"],
                 $_POST["email"],
                 $hashedPassword,
+                //$_POST["signup-password"],
                 $salt   
             );
 
@@ -77,13 +79,20 @@ class model
     public function loginMember()
     {
         $loginUserResult = $this->getMember($_POST["username"]);
+        if(empty($loginUserResult)){
+            $loginStatus = "Invalid username or password.";
+            return $loginStatus;
+        }
         if (! empty($_POST["signup-password"])) {
             
             $password = $_POST["signup-password"];
         }
         $hashedPassword = $loginUserResult[0]["password"];
+        //echo $hashedPassword;
         $salt = $loginUserResult[0]["salt"];
-        $verify_password = hash('sha256',$password + $salt);
+        //echo "iam salt" + $salt;
+        //echo "iam password" + $password;
+        $verify_password = hash('sha256',$password . strval($salt));
         $loginPassword = 0;
         if ($verify_password == $hashedPassword) {
             $loginPassword = 1;
