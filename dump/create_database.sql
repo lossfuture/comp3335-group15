@@ -23,13 +23,14 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`) VALUES
 (2, 'banana', 'banana@example.com', 'f76cb816b3f74ecf30d387c64869038ac163fe26f8aabd727c1071dd567fc3d5', 1532),
 (3, 'car', 'car@example.com', '7ca26aafbfe189a20d2fed657ddcca8aa31581ee6838b90289c4faa4dd23fef8', 4325),
 (4, 'dog', 'dog@example.com', '48fe0661615dd0a2fc9cf1b77111613b4c3e7fc857b7bf89e472c233a0b35eb0', 2232),
-(5, 'edge', 'edge@example.com', 'b85bf0f7330be07933314afcfc04aa8e8bb33827eb03bdf2f65ff26fd32444f5', 3232),
+(5, 'edge', 'edge@example.com', 'b85bf0f7330be07933314afcfc04aa8e8bb33827eb03bdf2f65ff26fd32444f5', 3232);
 
 
 
 --
 -- create table 'admin'
 --
+
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
@@ -125,6 +126,12 @@ CREATE ROLE 'manager';
 GRANT SELECT, UPDATE, DELETE ON comp3335.orders TO 'manager';
 CREATE USER 'manager1'@'localhost' IDENTIFIED BY '84968223aRh';
 GRANT 'manager' TO 'manager1'@'localhost';
+
+CREATE ROLE 'validator';
+GRANT SELECT ON comp3335.user TO 'validator';
+GRANT SELECT ON comp3335.admin TO 'validator';
+CREATE USER 'validator1'@'localhost' IDENTIFIED BY '87fd89asf02';
+GRANT 'validator' TO 'validator1'@'localhost';
 
 /*
 REVOKE ALL PRIVILEGES ON *.* FROM 'manager'@'localhost'; 
