@@ -19,11 +19,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`) VALUES
-(1, 'apple', 'apple@example.com', '46437ab18a6657040b4535297ff247b20c535c02263713f88b6a9e17484f1f3f', 1221),
-(2, 'banana', 'banana@example.com', 'f76cb816b3f74ecf30d387c64869038ac163fe26f8aabd727c1071dd567fc3d5', 1532),
-(3, 'car', 'car@example.com', '7ca26aafbfe189a20d2fed657ddcca8aa31581ee6838b90289c4faa4dd23fef8', 4325),
-(4, 'dog', 'dog@example.com', '48fe0661615dd0a2fc9cf1b77111613b4c3e7fc857b7bf89e472c233a0b35eb0', 2232),
-(5, 'edge', 'edge@example.com', 'b85bf0f7330be07933314afcfc04aa8e8bb33827eb03bdf2f65ff26fd32444f5', 3232);
+(1, 'apple', 'apple@example.com', 'a3bca80e619c78ce04a8225fed8f6942be5020c66e69856393d824d7529b5e56', 1221),
+(2, 'banana', 'banana@example.com', '4e5bc7a29d29da8742ab754ed8fbce3fda77c0cf29f63243493f881985f79171', 1532),
+(3, 'car', 'car@example.com', '0e63f4bb4b0ae5781b72e5f499a44ac6985d5b3c6125948894c92a44bada39c6', 4325),
+(4, 'dog', 'dog@example.com', '4c54d6b49809a2c00c3a0582dfc72af32f31565210f55f42700c57bfcfe9bc94', 2232),
+(5, 'edge', 'edge@example.com', 'fefa51fda7da09ac4fa4b910b201533e1b1de36d6dc72d8a4ce8d376b64a4aa7', 3232);
 
 
 
@@ -45,7 +45,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `email`, `password`, `salt`) VALUES
-(1, 'kenny', 'kenny@admin.com', "a6c7ce3bde47a969e83a93f8a65788fae4013fdae454a3380751d1c568988433", 1234),
+(1, 'kenny', 'kenny@admin.com', "88d658ed9cdc1a4cfa8d0971d0b5738f11caa0958d50c43ee4b6f1566cfc7aee", 1234),
 (2, 'harry', 'harry@admin.com', "bff94628140f6c3216709c13ccdb2f07df2644e515b4d3dfc311e642c7d49930", 2345);
 
 --
