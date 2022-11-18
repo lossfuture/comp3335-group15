@@ -100,8 +100,8 @@ class model
         if ($loginPassword == 1) {
             $_SESSION["username"] = $loginUserResult[0]["username"];
             //$url = "user/index.php";
-            $loginurl = __DIR__.'/../mvc/in.php';
-            require $loginurl;
+            $loginurl ='in.php';
+            require $loginurl; 
             header("Location: $loginurl");
         } else if ($loginPassword == 0) {
             $loginStatus = "Invalid username or password.";
