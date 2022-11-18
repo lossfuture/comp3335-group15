@@ -108,9 +108,6 @@ ALTER TABLE `products`
 commit;
 -- create role
 
-
-SET global general_log = on;
-
 CREATE ROLE 'admin';
 GRANT DELETE, INSERT, SELECT ON comp3335.users TO 'admin';
 GRANT DELETE, INSERT, SELECT ON comp3335.users TO 'admin';
