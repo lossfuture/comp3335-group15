@@ -61,7 +61,7 @@ body, html {
 </style>
 </head>
 <body>
-  <div class="center"> <h1> ESIGELEC student sales portal</h1></div>
+  <div class="center"> <h1> COMP3335 student sales portal</h1></div>
 	  <button class="tablink" onclick="openPage('Home', this, 'white')"id="defaultOpen">Home</button>
 	  <button class="tablink" onclick="openPage('Aboutus', this, 'white')" >Aboutus</button>
 	  <button class="tablink" onclick="openPage('Products', this, 'blue')">Products</button>
