@@ -1,6 +1,13 @@
-<?php
+<?php session_start();
 require __DIR__.'/../admin/model.php';
 
+if(isset($_SESSION['attempt_again'])){
+    $now = time();
+    if($now >= $_SESSION['attempt_again']){
+        unset($_SESSION['attempt']);
+        unset($_SESSION['attempt_again']);
+    }
+}
 //use model;
 if (! empty($_POST["login-btn"])) {
    // require_once '../db/model.php';
