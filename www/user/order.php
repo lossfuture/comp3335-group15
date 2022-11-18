@@ -14,7 +14,8 @@
 
 	// connect to database
 
-	$connect = mysqli_connect('127.0.0.1', 'root', '12581258', 'customer');
+	//$connect = mysqli_connect('127.0.0.1', 'root', '12581258', 'customer');
+	$connect = mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
 	if ($connect->connect_error) {
  	 die("Database connection failed: " . $connect->connect_error);
 	}
