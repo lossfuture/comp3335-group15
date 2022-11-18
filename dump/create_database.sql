@@ -31,7 +31,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`) VALUES
 -- create table 'admin'
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -44,9 +44,9 @@ CREATE TABLE `admin` (
 -- insert value into table 'admin'
 --
 
-INSERT INTO `admin` (`id`, `username`, `email`, `password`, `salt`) VALUES
-(1, 'kenny', 'kenny@admin.com', "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", 1234),
-(2, 'harry', 'harry@admin.com', "38083c7ee9121e17401883566a148aa5c2e2d55dc53bc4a94a026517dbff3c6b", 2345);
+INSERT INTO `admins` (`id`, `username`, `email`, `password`, `salt`) VALUES
+(1, 'kenny', 'kenny@admin.com', "88d658ed9cdc1a4cfa8d0971d0b5738f11caa0958d50c43ee4b6f1566cfc7aee", 1234),
+(2, 'harry', 'harry@admin.com', "bff94628140f6c3216709c13ccdb2f07df2644e515b4d3dfc311e642c7d49930", 2345);
 
 --
 -- create table `orders`
@@ -57,6 +57,8 @@ CREATE TABLE `orders` (
   `product` varchar(20) NOT NULL,
   `quantity` int(20) NOT NULL,
   `price` float NOT NULL,
+  `userID` int(11) NOT NULL,
+  Foreign Key (userID) REFERENCES users(id),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
 
@@ -64,12 +66,12 @@ CREATE TABLE `orders` (
 -- Insert value into table `orders`
 --
 
-INSERT INTO `orders` (`id`, `category`, `product`, `quantity`, `price`) VALUES
-(3, 'laptop', 'lenovo-ThinkPad X1', 1, 872),
-(4, 'laptop', 'Acer_Swift 7', 1, 872),
-(5, 'mobile', 'Asus-ZenFone 6', 1, 872),
-(8, 'laptop', 'lenovo_38', 1, 374),
-(10, 'laptop', 'lenovo-ThinkPad', 1, 872);
+INSERT INTO `orders` (`id`, `category`, `product`, `quantity`, `price`, `userId`) VALUES
+(1, 'laptop', 'lenovo-ThinkPad X1', 1, 872, 1),
+(2, 'laptop', 'Acer_Swift 7', 1, 872, 1),
+(3, 'mobile', 'Asus-ZenFone 6', 1, 872,2),
+(4, 'laptop', 'lenovo_38', 1, 374, 2),
+(5, 'laptop', 'lenovo-ThinkPad', 1, 872, 2);
 
 -- --------------------------------------------------------
 
@@ -129,7 +131,7 @@ GRANT 'manager' TO 'manager1'@'localhost';
 
 CREATE ROLE 'validator';
 GRANT SELECT ON comp3335.users TO 'validator';
-GRANT SELECT ON comp3335.admin TO 'validator';
+GRANT SELECT ON comp3335.admins TO 'validator';
 CREATE USER 'validator1'@'localhost' IDENTIFIED BY '87fd89asf02';
 GRANT 'validator' TO 'validator1'@'localhost';
 
