@@ -46,7 +46,7 @@ body, html {
 }
 
 #Home {background-color: none;}
-#Aboutus {background-color: none;}
+#About us {background-color: none;}
 #Products {background-color: none;}
 #Login {background-color: #989898;}
 .dropdown-submenu {
