@@ -5,7 +5,7 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 -- Create table `user`
 --
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(155) NOT NULL,
@@ -31,7 +31,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`) VALUES
 -- create table 'admin'
 --
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL AUTO INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(155) NOT NULL,
