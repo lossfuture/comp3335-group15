@@ -29,6 +29,27 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
 (16, 'today', 'today@esigelec.fr', 'c5e7dfaf771d423ecf59b008369021e8'),
 (17, 'peter', 'peter@esigelec.fr', '51dc30ddc473d43a6011e9ebba6ca770');
 
+
+--
+-- create table 'admin'
+--
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(155) NOT NULL,
+  `salt` int(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- insert value into table 'admin'
+--
+
+INSERT INTO `admin` (`id`, `username`, `email`, `password`, `salt`) VALUES
+(1, 'kenny', 'kenny@admin.com', "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4", 1234),
+(2, 'harry', 'harry@admin.com', "38083c7ee9121e17401883566a148aa5c2e2d55dc53bc4a94a026517dbff3c6b", 2345);
+
 --
 -- create table `orders`
 --
