@@ -1,4 +1,9 @@
-<?php session_start();
+<?php 
+if (!isset($_COOKIE["user"])){
+	header("Location:home.php");
+  exit;
+}
+session_start();
   $connect = mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
     if(isset($_POST["add_to_cart"]))
     {
@@ -11,7 +16,7 @@
     //get all item detail
             $item_array = array(
                       'item_id'       =>   $_GET["id"],
-                      'product_img'     =>   $_POST["hidden_image"],
+                      'product_img'   =>   $_POST["hidden_image"],
                       'item_name'     =>   $_POST["hidden_name"],
                       'item_price'    =>   $_POST['hidden_price'],
                       'item_quantity' =>   $_POST["quantity"]
@@ -22,7 +27,7 @@
         else
         {
           //product added then this block 
-          echo '<script>alert("Item allready added ")</script>';
+          echo '<script>alert("Item already added ")</script>';
           echo '<script>window.location = "in.php"</script>';
         }
       }
@@ -31,7 +36,7 @@
         //cart is empty excute this block
          $item_array = array(
                       'item_id'       =>   $_GET["id"],
-                      'product_img'     =>   $_POST["hidden_image"],
+                      'product_img'   =>   $_POST["hidden_image"],
                       'item_name'     =>   $_POST["hidden_name"],
                       'item_price'    =>   $_POST['hidden_price'],
                       'item_quantity' =>   $_POST["quantity"]
@@ -66,7 +71,12 @@
             {
               if($value["item_id"] == $_GET["id"])
               {
-                
+                $query =  "INSERT INTO orders (id ,category, product, quantity, price) VALUES 
+                (null,'lap','$value[item_name]','$value[item_quantity]','$value[item_price]')";
+                echo $query;
+                mysqli_query($connect, $query);
+                unset($_SESSION["shopping_cart"][$key]);
+              /*
               //  var_dump($item_array_id);
               
                 //($_SESSION["shopping_cart"][$key]);
@@ -84,6 +94,7 @@
                   {
                       echo 'not success';
                     }
+                  */
         }
 
       }
@@ -114,18 +125,19 @@
 
                   ?>
                 <div class="col-md-4">  
-                     <form method="post" action="in.php?action=add&id=<?php echo $row["id"];?>">  
+                     <form method="post" action="in.php?action=add_to_cart&id=<?php echo $row["id"];?>">  
                           <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">  
-                               <img src="/image/<?php echo $row['image'];?>" class="img-responsive" style="    width: 100px;" /><br />  
-                               <h4 class="text-info"><?php echo $row['name'];?></h4>  
-                               <h4 class="text-danger">$<?php echo $row['price'];?></h4>  
-                               <input type="text" name="quantity" class="form-control" value="1" />
-                            <input type="hidden" name="hidden_name" value="<?php echo $row['name'] ?>" />
-                           <input type="hidden" name="hidden_image" value="<?php echo $row['image'];?>">
-                            <input type="hidden" name="hidden_price" value="<?php echo $row['price'];?>">
+                                <img src="/image/<?php echo $row['image'];?>" class="img-responsive" style="    width: 100px;" /><br />  
+                                <h4 class="text-info"><?php echo $row['category'];?></h4>  
+				                        <h4 class="text-info"><?php echo $row['product'];?></h4>  
+                                <h4 class="text-danger">$<?php echo $row['price'];?></h4>  
+                                <input type="text" name="quantity" class="form-control" value="1" />
+                                <input type="hidden" name="hidden_name" value="<?php echo $row['product']?>"/>
+                                <input type="hidden" name="hidden_image" value="<?php echo $row['image'];?>">
+                                <input type="hidden" name="hidden_price" value="<?php echo $row['price'];?>">
 
 
-                               <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />  
+                                <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />  
                           </div>  
                      </form>  
                 </div>  
@@ -176,8 +188,8 @@
                                <td></td>  
                           </tr>
                           
-                       //  <?php } ?> 
-                           
+                         <?php } ?> 
+                         <p><a href="logout.php"> logout</a></p>
                      </table>  
                 </div>  
            </div>  
