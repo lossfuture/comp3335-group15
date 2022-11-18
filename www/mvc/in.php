@@ -1,6 +1,6 @@
 <?php 
 if (!isset($_COOKIE["user"])){
-	header("Location:home.php");
+	header("Location:login-form.php");
   exit;
 }
 session_start();
