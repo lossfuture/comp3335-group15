@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 define('ROOT_DIR', realpath(__DIR__.'/..'));
 require __DIR__.'/../mvc/model.php';
 
@@ -7,6 +7,13 @@ if (! empty($_POST["login-btn"])) {
    // require_once '../db/model.php';
     $member = new model();
     $loginResult = $member->loginMember();
+}
+if(isset($_SESSION['attempt_again'])){
+    $now = time();
+    if($now >= $_SESSION['attempt_again']){
+        unset($_SESSION['attempt']);
+        unset($_SESSION['attempt_again']);
+    }
 }
 ?>
 <div class="sign-up-container">
