@@ -21,6 +21,7 @@ class model
             $username
         );
         $loginUser = $this->ds->select($query, $paramType, $paramValue);
+        //var_dump ($loginUser);
         return $loginUser;
     }
 
@@ -32,8 +33,8 @@ class model
             return $loginStatus;
         }
         if (! empty($_POST["signup-password"])) {
-            
             $password = $_POST["signup-password"];
+            //echo $password;
             if(!isset($_SESSION['attempt'])){
                 $_SESSION['attempt'] = 0;
             }
@@ -55,10 +56,7 @@ class model
             }
             $_SESSION["username"] = $loginUserResult[0]["username"];
             setcookie("user","user",time()+1800);
-            //$url = "user/index.php";
-            $loginurl = 'index.php';
-            //require_once $loginurl;
-            header("Location: $loginurl");
+            header('Location: index.php');
         } else if ($loginPassword == 0) {
             $_SESSION['attempt'] += 1;
             if($_SESSION['attempt'] == 3){
