@@ -32,13 +32,25 @@ class model
         return $count;
     }
 
+    public function strongpassword($password){
+        $uppercase = preg_match('@[A-Z]@', $password);
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number    = preg_match('@[0-9]@', $password);
+        if(!$uppercase || !$lowercase || !$number || strlen($password) < 8){
+            $count = 2;
+        }
+        return $count;
+    }
+
     public function registerMember()
     {
         $result = $this->isMemberExists($_POST["email"]);
+        if($result != 1 ){
+            $result = $this->strongpassword($_POST["signup-password"]);
+        }
         if ($result < 1) {
             if (! empty($_POST["signup-password"])) {
                 $salt = rand(1, 9999);
-                
                 $hashedPassword = hash('sha256',$_POST["signup-password"] . strval($salt));
                // echo $hashedPassword; 
             }
@@ -59,10 +71,13 @@ class model
                 $response = array("status" => "success", "message" => "You have registered successfully.");
             }
             else{
-                echo "having error";
+                $response = array("status" => "error", "message" => "cant be empty in * column");
             }
         } else if ($result == 1) {
             $response = array("status" => "error", "message" => "Email already exists.");
+        }
+        else if ($result == 2) {
+            $response = array("status" => "error", "message" => "Password must at least 8 words with big and small character");
         }
         return $response;
     }
@@ -105,20 +120,20 @@ class model
         if ($verify_password == $hashedPassword) {
             $loginPassword = 1;
         }
-        if ($loginPassword == 1 && $_SESSION['attempt'] < 4) {
+        if ($loginPassword == 1 && $_SESSION['attempt'] < 3) {
             $_SESSION["username"] = $loginUserResult[0]["username"];
-            setcookie("user",$loginUserResult[0]["id"],time()+1800);
+            setcookie("user","user",time()+1800);
             $loginurl = 'in.php';
             //require_once $loginurl;
             header("Location: $loginurl");
         }
-        else if ($loginPassword == 1 && $_SESSION['attempt'] > 4){
+        else if ($loginPassword == 1 && $_SESSION['attempt'] > 2){
                 $loginStatus = "Attempt limit reach please wait 10 seconds";
                 //$_SESSION['locked'] = time();
         }
         else if ($loginPassword == 0) {
             $_SESSION['attempt'] += 1;
-            if($_SESSION['attempt'] > 4){
+            if($_SESSION['attempt'] > 2){
                 $loginStatus = "Attempt limit reach please wait 10 seconds";
                 $_SESSION['locked'] = time() + 1 *10;
                 //$_SESSION['attempt'] = 0;
