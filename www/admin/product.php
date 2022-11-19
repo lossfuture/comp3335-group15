@@ -1,4 +1,8 @@
 <?php 
+if (!isset($_COOKIE["admin"])){
+	header("Location:login-form.php");
+  exit;
+}
 session_start();
 require_once('server_admin.php');
 /* This is homepage,  Admin will add categorys, products and price which will available to users to buy/add into basket */
