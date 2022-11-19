@@ -1,4 +1,11 @@
 <?php session_start();
+if(isset($_SESSION['locked'])){
+    $now = time();
+    if($now >= $_SESSION['locked']){
+        unset($_SESSION['attempt']);
+        unset($_SESSION['locked']);
+    }
+}
 define('ROOT_DIR', realpath(__DIR__.'/..'));
 require __DIR__.'/../mvc/model.php';
 
@@ -8,13 +15,19 @@ if (! empty($_POST["login-btn"])) {
     $member = new model();
     $loginResult = $member->loginMember();
 }
-if(isset($_SESSION['attempt_again'])){
-    $now = time();
-    if($now >= $_SESSION['attempt_again']){
-        unset($_SESSION['attempt']);
-        unset($_SESSION['attempt_again']);
+
+ 
+
+
+/**if(isset($_SESSION["locked"])){
+    $difference = time() - $_SESSION["locked"];
+    if($difference > 10){
+        unset ($_SESSION["locked"]);
+        unset ($_SESSION["attempt"]);
     }
 }
+*/
+
 ?>
 <div class="sign-up-container">
 <div class="login-signup">
@@ -25,7 +38,7 @@ if(isset($_SESSION['attempt_again'])){
         onsubmit="return loginValidation()">
         <div class="signup-heading">Login</div>
     <?php if(!empty($loginResult)){?>
-    <div class="error-msg"><?php echo $loginResult;?></div>
+    <div class="error-msg"><?php  echo '<script type="text/javascript">alert("'.$loginResult.'");</script>'; ?></div>
     <?php }?>
     <div class="row">
             <div class="inline-block">
