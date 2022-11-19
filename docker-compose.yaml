@@ -22,7 +22,7 @@ services:
             - ./dump:/docker-entrypoint-initdb.d
             - ./conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
-    proemetheus:
+    prometheus:
         image: prom/prometheus
         ports:
             - "9090:9090"
