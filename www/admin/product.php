@@ -5,37 +5,21 @@ if (!isset($_COOKIE["admin"])){
 }
 session_start();
 require_once('server_admin.php');
-
-/* Admin manager will view and delete the products from the database @basket and table products */
-
-if(isset($_POST["submit1"]))
-{
-	$box=$_POST['num'];
-	while (list ($key,$val) = @each ($box)) 
-	{	
-	   mysqli_query($link,"delete from products where id=$val"); 
-	}
-	
-	header('Location: viewanddelete.php');
-	exit();
-}
-
-$stmt = $pdo->prepare("SELECT *  FROM products");
-$stmt->execute();
-
+/* This is homepage,  Admin will add categorys, products and price which will available to users to buy/add into basket */
 ?>
-
 <!DOCTYPE HTML>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin manager access rights</title>
+<title>ADMIN portal</title>
+	
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
 <style>
 body {font-family:"Helvetica Neue", Helvetica, Arial;margin:0;padding:0;background:#FFF;padding-top:60px; padding-bottom:0px;}
 body,html{height:100%;width:100%}
  </style>
+ <link rel="stylesheet" type="text/css" href="/user/style.css">
 </head>
 
 
@@ -66,40 +50,56 @@ body,html{height:100%;width:100%}
 </div>
 </nav>
 <div class="container">
-
-<h2 style="text-align:center;">Verify products or remove products from the customer database</h2>
-<form name="form1" action="" method="post" >
-
-
-<?php 
 	
 
-echo "<table>";
-while($row = $stmt->fetch())
-{
+	<div class="header"style="text-align:center;">
+	<h1> ESIGELEC admin portal site </h1>
 
-echo "<tr>";
-echo "<td>"; ?> <input type="checkbox" name="num[]" class="other" value="<?php echo $row["id"]; ?>" /> <?php echo "</td>";
-echo "<th>ID</th>";
-echo "<td>"; echo $row["id"]; echo "</td>";
-//echo "<td>"; echo $row["image"]; echo "</td>";
-echo "<th>"; echo 'CATEGORY';
-echo "<td>"; echo $row["category"]; echo "</td>";
-echo "<th>"; echo 'PRODUCT';
-echo "<td>"; echo $row["product"]; echo "</td>";
-echo "<th>"; echo 'PRICE';
-echo "<td>"; echo $row["price"]; echo "</td>";
-echo "</tr>\n";
-}
-echo "</table>";
-?>
-<input type="submit" name="submit1" value="delete selected" style="text-align:center;">
-<a href ="product.php" style="text-align:center;">go back admin page</a>
+		<h2>Add the products into user database</h2>
+	</div>
+
+	<form method="post" action="product.php/" style="text-align:center;">
+
+
+
+		<?php // include('errors.php'); ?>
+
+
+<div class="input-group">
+			
+
+<div class="option-group"><label>Add image</label>
+<div class="input-group">
+		<input type="checkbox" name="image"  value="<?php echo $image ="mobile.jpg";?>">mobile</option>
+		<input type="checkbox" name="image"  value="<?php echo $image ="laptop.jpg";?>">laptop-</option>
+	
+	</div>
+		
+		<div class="input-group">
+			<label>Add category</label>
+			<input type="text" name="category" value="<?php echo $category; ?>">
+		</div>
+		<div class="input-group">
+			<label>Add product</label>
+			<input type="text" name="product" value="<?php echo $product; ?>">
+		</div>
+  
+		<div class="input-group">
+			<label>Add price</label>
+			<input type="text" name="price" value="<?php echo $price; ?>">
+		</div>
+  
+		<div class="input-group">
+			<button type="submit" class="btn" name="add_product"> Add product</button>
+		</div>
+<br>
+<hr><br>
+</h4> Delete customer accounts </h4>
+<a href ="deleteusers.php">click here</a><br><hr>
+</h4> Delete products from the list already added in the customer database</h4>
+<a href ="viewanddelete.php">click here</a>
 </form>
 
 
-
-
-</div>
 </body>
 </html>
