@@ -54,7 +54,7 @@ class model
         }
         if ($loginPassword == 1 && $_SESSION['attempt'] < 4) {
             $_SESSION["username"] = $loginUserResult[0]["username"];
-            setcookie("user","user",time()+1800);
+            setcookie("admin","admin",time()+1800);
             $loginurl = 'index.php';
             //require_once $loginurl;
             header("Location: $loginurl");
