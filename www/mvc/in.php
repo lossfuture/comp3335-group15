@@ -18,6 +18,7 @@ session_start();
                       'item_id'       =>   $_GET["id"],
                       'product_img'   =>   $_POST["hidden_image"],
                       'item_name'     =>   $_POST["hidden_name"],
+                      'item_category' =>   $_POST['hidden_category'],
                       'item_price'    =>   $_POST['hidden_price'],
                       'item_quantity' =>   $_POST["quantity"]
 
@@ -38,6 +39,7 @@ session_start();
                       'item_id'       =>   $_GET["id"],
                       'product_img'   =>   $_POST["hidden_image"],
                       'item_name'     =>   $_POST["hidden_name"],
+                      'item_category' =>   $_POST['hidden_category'],
                       'item_price'    =>   $_POST['hidden_price'],
                       'item_quantity' =>   $_POST["quantity"]
 
@@ -71,9 +73,8 @@ session_start();
             {
               if($value["item_id"] == $_GET["id"])
               {
-                $query =  "INSERT INTO orders (id ,category, product, quantity, price) VALUES 
-                (null,'lap','$value[item_name]','$value[item_quantity]','$value[item_price]')";
-                echo $query;
+                $query =  "INSERT INTO orders (id ,category, product, quantity, price, userId) VALUES 
+                (null,'$value[item_category]','$value[item_name]','$value[item_quantity]','$value[item_price]','1')";
                 mysqli_query($connect, $query);
                 unset($_SESSION["shopping_cart"][$key]);
               /*
@@ -133,6 +134,7 @@ session_start();
                                 <h4 class="text-danger">$<?php echo $row['price'];?></h4>  
                                 <input type="text" name="quantity" class="form-control" value="1" />
                                 <input type="hidden" name="hidden_name" value="<?php echo $row['product']?>"/>
+                                <input type="hidden" name="hidden_category" value="<?php echo $row['category']?>"/>
                                 <input type="hidden" name="hidden_image" value="<?php echo $row['image'];?>">
                                 <input type="hidden" name="hidden_price" value="<?php echo $row['price'];?>">
 
