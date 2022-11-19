@@ -4,7 +4,7 @@ if (!isset($_COOKIE["user"])){
   exit;
 }
 session_start();
-  $connect = mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
+require "../connStudent.php";
     if(isset($_POST["add_to_cart"]))
     {
       if(isset($_SESSION["shopping_cart"]))
