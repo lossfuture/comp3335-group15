@@ -2,13 +2,14 @@
 define('ROOT_DIR', realpath(__DIR__.'/..'));
 require __DIR__.'/../admin/model.php';
 
-if(isset($_SESSION['attempt_again'])){
+if(isset($_SESSION['locked'])){
     $now = time();
-    if($now >= $_SESSION['attempt_again']){
+    if($now >= $_SESSION['locked']){
         unset($_SESSION['attempt']);
-        unset($_SESSION['attempt_again']);
+        unset($_SESSION['locked']);
     }
 }
+
 //use model;
 if (! empty($_POST["login-btn"])) {
    // require_once '../db/model.php';
@@ -22,7 +23,7 @@ if (! empty($_POST["login-btn"])) {
         onsubmit="return loginValidation()">
         <div class="signup-heading">Login</div>
     <?php if(!empty($loginResult)){?>
-    <div class="error-msg"><?php echo $loginResult;?></div>
+    <div class="error-msg"><?php echo '<script type="text/javascript">alert("'.$loginResult.'");</script>';?></div>
     <?php }?>
     <div class="row">
             <div class="inline-block">
