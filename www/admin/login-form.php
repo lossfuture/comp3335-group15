@@ -1,4 +1,5 @@
 <?php session_start();
+define('ROOT_DIR', realpath(__DIR__.'/..'));
 require __DIR__.'/../admin/model.php';
 
 if(isset($_SESSION['attempt_again'])){
