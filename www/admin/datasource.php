@@ -16,7 +16,7 @@
  *
  * @version 2.5 - recordCount function added
  */
-require "../connAdmin.php";
+require "../connValidator.php";
 class datasource
 {
 
