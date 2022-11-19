@@ -15,7 +15,7 @@ class model
 
     public function getMember($username)
     {
-        $query = 'SELECT * FROM admin where username = ?';
+        $query = 'SELECT * FROM admins where username = ?';
         $paramType = 's';
         $paramValue = array(
             $username
