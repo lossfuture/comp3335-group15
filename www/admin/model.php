@@ -28,18 +28,20 @@ class model
     public function loginMember()
     {
         $loginUserResult = $this->getMember($_POST["username"]);
+        //$loginStatus = "";
         if(empty($loginUserResult)){
             $loginStatus = "Invalid username or password.";
             return $loginStatus;
         }
         if (! empty($_POST["signup-password"])) {
+            
             $password = $_POST["signup-password"];
-            //echo $password;
             if(!isset($_SESSION['attempt'])){
-                $_SESSION['attempt'] = 0;
+                $_SESSION['attempt'] = 1;
             }
 
         }
+        //echo $_SESSION['attempt'];
         $hashedPassword = $loginUserResult[0]["password"];
         //echo $hashedPassword;
         $salt = $loginUserResult[0]["salt"];
@@ -50,24 +52,32 @@ class model
         if ($verify_password == $hashedPassword) {
             $loginPassword = 1;
         }
-        if ($loginPassword == 1 && $_SESSION['attempt'] != 3) {
-            if($_SESSION['attempt'] == 3){
-                echo "Attempt limit reach please wait  10 seconds";
-            }
+        if ($loginPassword == 1 && $_SESSION['attempt'] < 4) {
             $_SESSION["username"] = $loginUserResult[0]["username"];
             setcookie("user","user",time()+1800);
-            header('Location: index.php');
-        } else if ($loginPassword == 0) {
+            $loginurl = 'index.php';
+            //require_once $loginurl;
+            header("Location: $loginurl");
+        }
+        else if ($loginPassword == 1 && $_SESSION['attempt'] > 4){
+                $loginStatus = "Attempt limit reach please wait 10 seconds";
+                //$_SESSION['locked'] = time();
+        }
+        else if ($loginPassword == 0) {
             $_SESSION['attempt'] += 1;
-            if($_SESSION['attempt'] == 3){
-                    echo 'Attempt limit reach please wait 10 seconds';
-                    sleep(20);
-                    $_SESSION['attempt'] = 0;
+            if($_SESSION['attempt'] > 4){
+                $loginStatus = "Attempt limit reach please wait 10 seconds";
+                $_SESSION['locked'] = time() + 1 *10;
+                //$_SESSION['attempt'] = 0;
             }
             else{
                 $loginStatus = "Invalid username or password.";
             }
-            return $loginStatus;
         }
+        else{
+            $loginStatus = "Invalid username or password.";
+            $_SESSION['attempt'] += 1;
+        }
+            return $loginStatus;
     }
 }
