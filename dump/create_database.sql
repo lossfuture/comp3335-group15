@@ -107,7 +107,13 @@ INSERT INTO `products` (`id`, `image`, `category`, `product`, `price`) VALUES
 ALTER TABLE `products`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
-CREATE TABLE `verification_code` (`id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `user_type` TEXT NOT NULL , `verification_code` INT NOT NULL , `expried_date` DATETIME NOT NULL ) 
+CREATE TABLE `verification_code` 
+(`id` INT NOT NULL , 
+`user_id` INT NOT NULL , 
+`user_type` TEXT , 
+`verification_code` INT NOT NULL , 
+`token` varchar(155) NOT NULL,
+`expried_date` DATETIME NOT NULL ) 
 ENGINE = InnoDB;
 
 
