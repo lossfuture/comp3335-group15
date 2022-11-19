@@ -19,10 +19,8 @@ if(!isset($_COOKIE["manager"])){
 
 <form name="form1" action="" method="post">
 <?php
-
-/*Manager will access the customer orders to validate/ delete orders */
-$link =mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
-//$link=mysqli_connect("localhost","root","");
+require "../connManager.php";
+/*Manager will access the customer orders to delete orders */
 mysqli_select_db($link,"checkbox");
 $res=mysqli_query($link,"select * from orders");
 echo "<table>";
