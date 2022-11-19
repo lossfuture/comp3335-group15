@@ -134,32 +134,26 @@ CREATE TABLE `verification_code` (
 ENGINE = InnoDB;
 
 
-commit;
--- create role
 
-CREATE ROLE 'admin';
-GRANT DELETE, INSERT, SELECT ON comp3335.users TO 'admin';
-GRANT DELETE, INSERT, SELECT ON comp3335.users TO 'admin';
+CREATE USER 'admin1'@'%' IDENTIFIED BY '1115597898AAAb';
+GRANT DELETE, INSERT, SELECT ON comp3335.users TO 'admin1'@'%';
+GRANT DELETE, INSERT, SELECT ON comp3335.products TO 'admin1'@'%';
 
-CREATE USER 'admin1'@'localhost' IDENTIFIED BY '1115597898AAAb';
-GRANT 'admin' TO 'admin1'@'localhost';
 
-create role 'student';
-GRANT INSERT ON comp3335.products TO 'student';
-CREATE USER 'student1'@'localhost' IDENTIFIED BY '39489310ajA';
-GRANT 'student' TO 'student1'@'localhost';
 
-CREATE ROLE 'manager';
-GRANT SELECT, UPDATE, DELETE ON comp3335.orders TO 'manager';
-CREATE USER 'manager1'@'localhost' IDENTIFIED BY '84968223aRh';
-GRANT 'manager' TO 'manager1'@'localhost';
 
-CREATE ROLE 'validator';
-GRANT SELECT ON comp3335.users TO 'validator';
-GRANT SELECT ON comp3335.admins TO 'validator';
-GRANT SELECT ON comp3335.managers TO 'validator';
-CREATE USER 'validator1'@'localhost' IDENTIFIED BY '87fd89asf02';
-GRANT 'validator' TO 'validator1'@'localhost';
+CREATE USER 'student1'@'%' IDENTIFIED BY '39489310ajA';
+GRANT INSERT ON comp3335.products TO 'student1'@'%';
+
+CREATE USER 'manager1'@'%' IDENTIFIED BY '84968223aRh';
+GRANT SELECT, UPDATE, DELETE ON comp3335.orders TO 'manager1'@'%';
+
+CREATE USER 'validator1'@'%' IDENTIFIED BY '87fd89asf02';
+GRANT SELECT ON comp3335.users TO 'validator1'@'%';
+GRANT SELECT ON comp3335.admins TO 'validator1'@'%';
+GRANT SELECT ON comp3335.managers TO 'validator1'@'%';
+
+
 
 /*
 REVOKE ALL PRIVILEGES ON *.* FROM 'manager'@'localhost'; 
@@ -167,3 +161,5 @@ REVOKE GRANT OPTION ON *.* FROM 'manager'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO 'manager'@'localhost'; 
 ALTER USER 'manager'@'localhost' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
 */
+
+commit;
