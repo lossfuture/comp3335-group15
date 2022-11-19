@@ -133,27 +133,21 @@ CREATE TABLE `verification_code` (
    PRIMARY KEY (`id`)) 
 ENGINE = InnoDB;
 
-
-
 CREATE USER 'admin1'@'%' IDENTIFIED BY '1115597898AAAb';
-GRANT DELETE, INSERT, SELECT ON comp3335.users TO 'admin1'@'%';
+GRANT DELETE, SELECT ON comp3335.users TO 'admin1'@'%';
 GRANT DELETE, INSERT, SELECT ON comp3335.products TO 'admin1'@'%';
 
-
-
-
 CREATE USER 'student1'@'%' IDENTIFIED BY '39489310ajA';
-GRANT INSERT ON comp3335.products TO 'student1'@'%';
+GRANT INSERT ON comp3335.orders TO 'student1'@'%';
+GRANT SELECT ON comp3335.products TO 'student1'@'%';
 
 CREATE USER 'manager1'@'%' IDENTIFIED BY '84968223aRh';
-GRANT SELECT, UPDATE, DELETE ON comp3335.orders TO 'manager1'@'%';
+GRANT SELECT, DELETE ON comp3335.orders TO 'manager1'@'%';
 
 CREATE USER 'validator1'@'%' IDENTIFIED BY '87fd89asf02';
-GRANT SELECT ON comp3335.users TO 'validator1'@'%';
+GRANT SELECT, INSERT ON comp3335.users TO 'validator1'@'%';
 GRANT SELECT ON comp3335.admins TO 'validator1'@'%';
 GRANT SELECT ON comp3335.managers TO 'validator1'@'%';
-
-
 
 /*
 REVOKE ALL PRIVILEGES ON *.* FROM 'manager'@'localhost'; 
