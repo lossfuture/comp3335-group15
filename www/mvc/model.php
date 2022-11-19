@@ -107,7 +107,7 @@ class model
                 echo "Attempt limit reach please wait  10 seconds";
             }
             $_SESSION["username"] = $loginUserResult[0]["username"];
-            setcookie("user",$loginUserResult[0][id],time()+1800);
+            setcookie("user",$loginUserResult[0]["id"],time()+1800);
             //$url = "user/index.php";
             $loginurl = 'in.php';
             //require_once $loginurl;
