@@ -75,7 +75,6 @@ session_start();
               {
                 $query =  "INSERT INTO orders (id ,category, product, quantity, price, userId) VALUES 
                 (null,'$value[item_category]','$value[item_name]','$value[item_quantity]','$value[item_price]','$_COOKIE[user]')";
-                echo $query;
                 mysqli_query($connect, $query);
                 unset($_SESSION["shopping_cart"][$key]);
               /*
