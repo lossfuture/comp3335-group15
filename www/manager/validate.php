@@ -6,12 +6,13 @@
 </head>
 
 <body> 
-<h1 style="text-align:center;">Hi manager..! please check and validate customer orders </h1>
+<h1 style="text-align:center;">Hi manager! please check and validate customer orders </h1>
 
 <br><hr>
 
 <form name="form1" action="" method="post">
 <?php
+
 /*Manager will access the customer orders to validate/ delete orders */
 $link =mysqli_connect('db:3306', 'root', 'Ip38w#*5tA%hwJLy', 'comp3335');
 //$link=mysqli_connect("localhost","root","");
@@ -39,6 +40,7 @@ echo "</table>";
 ?>
 <input type="submit" name="submit1" value="Delete">
 <input type="submit" name="edit" value=" Update "/>
+<button type="button" onclick="location.href='login-form.php'" >Log out </button>
 </form>
 
 
@@ -51,37 +53,19 @@ if(isset($_POST["submit1"]))
 	   mysqli_query($link,"delete from orders where id=$val"); 
 	}
 	
-	?>
+?>
 	<script type="text/javascript">
 	window.location.href=window.location.href;
 	</script>
-	<?php
+<?php
 }
 if( isset($_GET['edit']) )
-	{
+{
 		$item_id = $_GET['edit'];
 		$link= mysql_query("SELECT * FROM orders WHERE id='$id'");
 		$row= mysql_fetch_array($link);
-	}
-//if( isset($_POST['status']) )
-	//{
-		//$box=$_POST['newName'];
-		//while (list ($key,$val) = @each ($box)) 
-		//{	
-	   	//	mysqli_query($link,"UPDATE orders SET status='$newName' WHERE item_id='$val'"); 
-		//}
-	
-		//$newName = $_POST['newName'];
-		//$item_id   = $_POST['status'];
-		//$sql     = "UPDATE orders SET status='$status' WHERE item_id='$item_id";
-		//$link 	 
-		//mysql_query($link,"UPDATE orders SET status='$status' WHERE item_id='$item_id'");
-                                    //or die("Could not update".mysql_error());
-	//}
-
+}
 ?>
-
-
 
 </body>
 </html>
