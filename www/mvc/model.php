@@ -77,7 +77,7 @@ class model
             $response = array("status" => "error", "message" => "Email already exists.");
         }
         else if ($result == 2) {
-            $response = array("status" => "error", "message" => "Password must at least 8 words with big and small character");
+            $response = array("status" => "error", "message" => "Password must contain at least 8 characters with capital letter, small letter and numeric");
         }
         return $response;
     }
