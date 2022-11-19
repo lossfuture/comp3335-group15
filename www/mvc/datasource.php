@@ -16,20 +16,15 @@
  *
  * @version 2.5 - recordCount function added
  */
+require "../connValidator.php";
 class datasource
 {
 
     // PHP 7.1.0 visibility modifiers are allowed for class constants.
     // when using above 7.1.0, declare the below constants as private
-    const HOST = 'db:3306';
-
-    const USERNAME = 'root';
-
-    const PASSWORD = 'Ip38w#*5tA%hwJLy';
-
-    const DATABASENAME = 'comp3335';
 
     private $conn;
+
 
     /**
      * PHP implicitly takes care of cleanup for default connection types.
@@ -42,26 +37,9 @@ class datasource
      * Keeping things simple and that works!
      */
     function __construct()
-    {
-        $this->conn = $this->getConnection();
-    }
-
-    /**
-     * If connection object is needed use this method and get access to it.
-     * Otherwise, use the below methods for insert / update / etc.
-     *
-     * @return \mysqli
-     */
-    public function getConnection()
-    {
-        $conn = new \mysqli(self::HOST, self::USERNAME, self::PASSWORD, self::DATABASENAME);
-
-        if (mysqli_connect_errno()) {
-            trigger_error("Problem with connecting to database.");
-        }
-
-        $conn->set_charset("utf8");
-        return $conn;
+    {  
+        $connAdmin = new connAdmin();
+        $this->conn = $connAdmin->getConnection();
     }
 
 /** 
