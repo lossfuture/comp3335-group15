@@ -125,4 +125,39 @@ class model
             return $loginStatus;
         }
     }
+    
+        public function verifytoken($token,$verification_code)
+    {
+        $query = 'SELECT * FROM verification_code where token = ? and verification_code = ?';
+        $paramType = 's';
+        $paramValue = array(
+            $token,$verification_code
+        );
+        $insertRecord = $this->ds->select($query, $paramType, $paramValue);
+        $count = 0;
+        if (is_array($insertRecord)) {
+            $count = count($insertRecord);
+        }
+        if ($count > 0){
+            $this->updatetoken;
+        }
+        return $count;
+    }
+    public function updatetoken($token,$verification_code)
+    {
+        //not implemted
+        $query = 'SELECT * FROM verification_code where token = ? and verification_code = ?';
+        $paramType = 's';
+        $paramValue = array(
+            $token,$verification_code
+        );
+        $insertRecord = $this->ds->select($query, $paramType, $paramValue);
+        $count = 0;
+        if (is_array($insertRecord)) {
+            $count = count($insertRecord);
+        }
+        
+        return $count;
+    }
+    
 }
