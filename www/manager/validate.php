@@ -40,11 +40,16 @@ echo "</table>";
 ?>
 <input type="submit" name="submit1" value="Delete">
 <input type="submit" name="edit" value=" Update "/>
-<button type="button" onclick="location.href='login-form.php'" >Log out </button>
+<button type="button" onclick="location.href='logout.php'" >Log out </button>
 </form>
 
 
 <?php
+if(!isset($_COOKIE["manager"])){
+	header("Location: login-form.php");
+	exit;
+}
+
 if(isset($_POST["submit1"]))
 {
 	$box=$_POST['num'];
