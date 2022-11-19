@@ -1,6 +1,4 @@
 <?php
-header('Location: login-form.php');
-exit();
 //check where user has admin privileges
 session_start();
 require_once('server_admin.php');
@@ -40,7 +38,7 @@ body,html{height:100%;width:100%}
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="logout.php">Logout</a></li>
+      <li><a href='login-form.php'>Log out</a></li>
 </ul>
 </div>
 </nav>
