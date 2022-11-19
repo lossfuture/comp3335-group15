@@ -1,5 +1,9 @@
 <?php
 //check where user has admin privileges
+if (!isset($_COOKIE["admin"])){
+	header("Location:login-form.php");
+  exit;
+}
 session_start();
 require_once('server_admin.php');
 
@@ -38,7 +42,7 @@ body,html{height:100%;width:100%}
         
       </ul>
       <ul class="nav navbar-nav navbar-right">
-      <li><a href='login-form.php'>Log out</a></li>
+      <li><a href='logout.php'>Log out</a></li>
 </ul>
 </div>
 </nav>
