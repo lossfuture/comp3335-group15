@@ -5,7 +5,6 @@ if (!isset($_COOKIE["admin"])){
 }
 session_start();
 require_once('server_admin.php');
-
 /* Admin manager will view and delete the products from the database @basket and table products */
 
 if(isset($_POST["submit1"]))
@@ -13,7 +12,10 @@ if(isset($_POST["submit1"]))
 	$box=$_POST['num'];
 	while (list ($key,$val) = @each ($box)) 
 	{	
-	   mysqli_query($link,"delete from products where id=$val"); 
+     $stmt = $pdo->prepare("delete from products where id= :val");
+     $stmt->execute(array(
+      ':val' => $val
+     ));
 	}
 	
 	header('Location: viewanddelete.php');
