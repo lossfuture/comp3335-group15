@@ -48,6 +48,23 @@ INSERT INTO `admins` (`id`, `username`, `email`, `password`, `salt`) VALUES
 (1, 'kenny', 'kenny@admin.com', "88d658ed9cdc1a4cfa8d0971d0b5738f11caa0958d50c43ee4b6f1566cfc7aee", 1234),
 (2, 'harry', 'harry@admin.com', "bff94628140f6c3216709c13ccdb2f07df2644e515b4d3dfc311e642c7d49930", 2345);
 
+CREATE TABLE `managers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(155) NOT NULL,
+  `salt` int(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- insert value into table 'admin'
+--
+
+INSERT INTO `managers` (`id`, `username`, `email`, `password`, `salt`) VALUES
+(1, 'charlie', 'charlie@manager.com', "8069adf6554db60ffa5383e8083b78fc761c944c0052d8fcbf2e05cf9dbaa7a8", 2458),
+(2, 'samuel', 'samuel@manager.com', "498c4825f30f2b6927fa0312c8b9d0bc7ea43b3e18fe235dbb24fe3bd4509f4a", 3697);
+
 --
 -- create table `orders`
 --
@@ -107,13 +124,13 @@ INSERT INTO `products` (`id`, `image`, `category`, `product`, `price`) VALUES
 ALTER TABLE `products`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
-CREATE TABLE `verification_code` 
-(`id` INT NOT NULL , 
-`user_id` INT NOT NULL , 
-`user_type` TEXT , 
-`verification_code` INT NOT NULL , 
-`token` varchar(155) NOT NULL,
-`expried_date` DATETIME NOT NULL ) 
+CREATE TABLE `verification_code` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+   `user_id` INT NOT NULL ,
+   `user_type` TEXT NOT NULL ,
+   `verification_code` INT NOT NULL ,
+   `expried_date` DATETIME NOT NULL ,
+   PRIMARY KEY (`id`)) 
 ENGINE = InnoDB;
 
 
@@ -140,6 +157,7 @@ GRANT 'manager' TO 'manager1'@'localhost';
 CREATE ROLE 'validator';
 GRANT SELECT ON comp3335.users TO 'validator';
 GRANT SELECT ON comp3335.admins TO 'validator';
+GRANT SELECT ON comp3335.managers TO 'validator';
 CREATE USER 'validator1'@'localhost' IDENTIFIED BY '87fd89asf02';
 GRANT 'validator' TO 'validator1'@'localhost';
 
