@@ -1,3 +1,10 @@
+<?php
+if(!isset($_COOKIE["manager"])){
+	header("Location: login-form.php");
+	exit;
+}
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -45,11 +52,6 @@ echo "</table>";
 
 
 <?php
-if(!isset($_COOKIE["manager"])){
-	header("Location: login-form.php");
-	exit;
-}
-
 if(isset($_POST["submit1"]))
 {
 	$box=$_POST['num'];
