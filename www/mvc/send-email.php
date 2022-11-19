@@ -7,13 +7,19 @@ echo $_SERVER['DOCUMENT_ROOT'];
     use PHPMailer\PHPMailer\Exception;
  
     //Load Composer's autoloader
-    require '../vendor/autoload.php';
+    //require '../vendor/autoload.php';
+require '../mailer/Exception.php';
+require '../mailer/PHPMailer.php';
+require '../mailer/SMTP.php';
+
  
-    if (isset($_POST["register"]))
+/*   if (isset($_POST["register"]))
     {
         $name = $_POST["name"];
         $email = $_POST["email"];
         $password = $_POST["password"];
+ */
+        $email="harryyuen3@gmail.com";
  
         //Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
@@ -74,5 +80,5 @@ echo $_SERVER['DOCUMENT_ROOT'];
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-    }
+//    }
 ?>
