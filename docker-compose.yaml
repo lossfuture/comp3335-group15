@@ -22,6 +22,16 @@ services:
             - ./dump:/docker-entrypoint-initdb.d
             - ./conf:/etc/mysql/conf.d
             - persistent:/var/lib/mysql
+    mysqlexporter:
+        image: prom/mysqld-exporter
+        ports:
+            - "9104:9104"
+        environment:
+            - DATA_SOURCE_NAME=root:Ip38w#*5tA%hwJLy@(db:3306)/comp3335
+    grafana:
+        image: grafana/grafana
+        ports:
+            -  "9876:3000"
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         ports:
