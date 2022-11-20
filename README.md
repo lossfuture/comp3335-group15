@@ -18,18 +18,22 @@ git clone https://github.com/lossfuture/comp3335-group15/
 ```
 docker-compose up -d
 ```
-
-3. Start up the container by using docker-compose as follows.
+4. Start up the container by using docker-compose as follows.
 ```
 docker-compose up
 ```
-4. Open another shell. Check the running containers:
+5. Open another shell. Check the running containers:
 ```
 docker ps
 ```
-5. then type localhost:8000 for phpmyadmin and  localhost:8001 for php file, to check where it is successful
+6. then type localhost:8000 for phpmyadmin and  localhost:8001 for php file, to check where it is successful
 
-6. shut down by press control-C
+7. sign up email
+
+8. verify emial in the system
+
+
+9. shut down by press control-C
 ---
 # Run linux script reference
 
