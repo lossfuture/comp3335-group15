@@ -1,5 +1,6 @@
 <?php
-echo $_SERVER['DOCUMENT_ROOT'];
+
+
     //Import PHPMailer classes into the global namespace
     //These must be at the top of your script, not inside a function
     use PHPMailer\PHPMailer\PHPMailer;
@@ -12,6 +13,10 @@ require '../mailer/Exception.php';
 require '../mailer/PHPMailer.php';
 require '../mailer/SMTP.php';
 
+function send_email($email,$verification_code){
+
+
+
  
 /*   if (isset($_POST["register"]))
     {
@@ -19,7 +24,7 @@ require '../mailer/SMTP.php';
         $email = $_POST["email"];
         $password = $_POST["password"];
  */
-        $email="harryyuen3@gmail.com";
+        #$email="harryyuen3@gmail.com";
  
         //Instantiation and passing `true` enables exceptions
         $mail = new PHPMailer(true);
@@ -58,7 +63,7 @@ require '../mailer/SMTP.php';
             //Set email format to HTML
             $mail->isHTML(true);
  
-            $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+            
  
             $mail->Subject = 'Email verification';
             $mail->Body    = '<p>Your verification code is: <b style="font-size: 30px;">' . $verification_code . '</b></p>';
@@ -69,16 +74,16 @@ require '../mailer/SMTP.php';
             // $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
  
             // connect with database
-            $conn = mysqli_connect("localhost:8889", "root", "root", "test");
+           // $conn = mysqli_connect("localhost:8889", "root", "root", "test");
  
             // insert in users table
-            $sql = "INSERT INTO users(name, email, password, verification_code, email_verified_at) VALUES ('" . $name . "', '" . $email . "', '" . $encrypted_password . "', '" . $verification_code . "', NULL)";
-            mysqli_query($conn, $sql);
+          //  $sql = "INSERT INTO users(name, email, password, verification_code, email_verified_at) VALUES ('" . $name . "', '" . $email . "', '" . $encrypted_password . "', '" . $verification_code . "', NULL)";
+         //   mysqli_query($conn, $sql);
  
-            header("Location: email-verification.php?email=" . $email);
-            exit();
+         //   header("Location: email-verification.php?email=" . $email);
+            return;
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            echo "Email could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-//    }
+    }
 ?>
