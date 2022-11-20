@@ -65,10 +65,13 @@ docker ps
 # Monitoring the database
 1. Go to Prometheus using port 9090
 
-run a particular query:
-> click on Graph 
-> click on insert metric: select the query in the drop-down menu that you want to execute 
-> click on the execute button.
+
+Run a particular query:
+Click on Graph 
+
+Click on insert metric: select the query in the drop-down menu that you want to execute 
+ 
+Click on the execute button.
 
 
 2. using Grafana login (port 9876) 
@@ -76,23 +79,23 @@ run a particular query:
 Username: admin
 Password: admin
 ```
-Click Skip
+2.1 Click Skip
 
 3.Add the data source(Set Prometheus as Grafana data source)
 
 URL: http://prometheus:9090/
 
-Enter the URL and click on Save & Test.
+3.1 Enter the URL and click on Save & Test.
 
 4.On the left menu, click on the plus icon and click on import
 
 
-> Enter 7362 
-> click Load button
-> Select prometheus
-> Click Import
+4.1 Enter 7362 
+4.2 click Load button
+4.3 Select prometheus
+4.4 Click Import
 
-Finally, your dashboard will be imported with real-time updates of MySQL.
+4.5 Finally, your dashboard will be imported with real-time updates of MySQL.
 
 
 ----
