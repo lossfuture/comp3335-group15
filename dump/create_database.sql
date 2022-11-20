@@ -10,6 +10,7 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(155) NOT NULL,
   `salt` int(4) NOT NULL,
+  `email_verified` int(1) NOT NULL DEFAULT 0,
  /* `credit_card_no` varchar(30) NOT NULL,*/
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -18,14 +19,14 @@ CREATE TABLE `users` (
 -- Insert value into table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`) VALUES
-(1, 'apple', 'apple@example.com', 'a3bca80e619c78ce04a8225fed8f6942be5020c66e69856393d824d7529b5e56', 1221),
-(2, 'banana', 'banana@example.com', '4e5bc7a29d29da8742ab754ed8fbce3fda77c0cf29f63243493f881985f79171', 1532),
-(3, 'car', 'car@example.com', '0e63f4bb4b0ae5781b72e5f499a44ac6985d5b3c6125948894c92a44bada39c6', 4325),
-(4, 'dog', 'dog@example.com', '4c54d6b49809a2c00c3a0582dfc72af32f31565210f55f42700c57bfcfe9bc94', 2232),
-(5, 'edge', 'edge@example.com', 'fefa51fda7da09ac4fa4b910b201533e1b1de36d6dc72d8a4ce8d376b64a4aa7', 3232),
-(6, 'polyu_20', 'harryyuen3+polyu20@gmail.com', '979def69666721f9e48a2afd0bd4bd71c0170ec1d4e27c62c6f7e5aa5d43f402', '11'),
-(7, 'polyu_21', 'harryyuen3+polyu21@gmail.com', 'f93c8d6f637b24b258bf2f7573fbe2d509b7a994713701d7e0f28e0f3d5e4b12', '9176');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`,`email_verified`) VALUES
+(1, 'apple', 'apple@example.com', 'a3bca80e619c78ce04a8225fed8f6942be5020c66e69856393d824d7529b5e56', 1221,1),
+(2, 'banana', 'banana@example.com', '4e5bc7a29d29da8742ab754ed8fbce3fda77c0cf29f63243493f881985f79171', 1532,1),
+(3, 'car', 'car@example.com', '0e63f4bb4b0ae5781b72e5f499a44ac6985d5b3c6125948894c92a44bada39c6', 4325,1),
+(4, 'dog', 'dog@example.com', '4c54d6b49809a2c00c3a0582dfc72af32f31565210f55f42700c57bfcfe9bc94', 2232,1),
+(5, 'edge', 'edge@example.com', 'fefa51fda7da09ac4fa4b910b201533e1b1de36d6dc72d8a4ce8d376b64a4aa7', 3232,1),
+(6, 'polyu_20', 'harryyuen3+polyu20@gmail.com', '979def69666721f9e48a2afd0bd4bd71c0170ec1d4e27c62c6f7e5aa5d43f402', 11,1),
+(7, 'polyu_21', 'harryyuen3+polyu21@gmail.com', 'f93c8d6f637b24b258bf2f7573fbe2d509b7a994713701d7e0f28e0f3d5e4b12', 9176,1);
 
 
 
