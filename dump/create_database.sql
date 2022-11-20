@@ -156,6 +156,8 @@ CREATE USER 'validator1'@'%' IDENTIFIED BY '87fd89asf02';
 GRANT SELECT, INSERT ON comp3335.users TO 'validator1'@'%';
 GRANT SELECT ON comp3335.admins TO 'validator1'@'%';
 GRANT SELECT ON comp3335.managers TO 'validator1'@'%';
+GRANT SELECT, INSERT,UPDATE,DELETE ON comp3335.email_verfiication TO 'validator1'@'%';
+GRANT SELECT, INSERT,UPDATE,DELETE ON comp3335.verification_code TO 'validator1'@'%';
 
 /*
 REVOKE ALL PRIVILEGES ON *.* FROM 'manager'@'localhost'; 
