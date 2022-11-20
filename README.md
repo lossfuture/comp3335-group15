@@ -1,12 +1,14 @@
 # Comp3335-group15
-database security
+Database security
 
-Reference: [https://polyu-comp.gitbook.io/lamp-stack-with-docker/](https://polyu-comp.gitbook.io/lamp-stack-with-docker/)
+This project is using Apache, MySql 8.0, PhpMyAdmin, PHP 7.4, Prometheus, mysqld-exporter and Grafana
 
-Since the example contains  Apache, MySql 8.0, PhpMyAdmin and Php 7.3
+The application using ONLINE_SALES_WEBSITE
+[https://github.com/shravasam/ONLINE_SALES_WEBSITE](https://github.com/shravasam/ONLINE_SALES_WEBSITE)
 
-VS Code extension
-[https://marketplace.visualstudio.com/items?itemName=github.remotehub](https://marketplace.visualstudio.com/items?itemName=github.remotehub)
+
+----
+# Setup the application
 
 1. Clone the repository
 ```
@@ -26,26 +28,56 @@ docker-compose up
 ```
 docker ps
 ```
-6. then type localhost:8000 for phpmyadmin and  localhost:8001 for php file, to check where it is successful
+6. then type localhost:8000 for phpmyadmin and  localhost:8001 for web server, to check where it is successful
 
-7. sign up email
+----
+# Login to the application
+7. Go to login page, and using email to sign up
 
-8. verify emial in the system
+8. Real email is needed because we adpoted email verification
+
+9. Then login to system
+
+10. A one-time access code has been sent into email, type it.
+
+11. Successful login to the system
+
+----
+# Admin Panel in the application
+12. Go to /admin/ and login, username can be kenny or harry, password is same as the username.
+
+13. Due to demo reason, 2FA is not adopted here.
+
+14. You can work around the product and user deleteion
+
+----
+# Manager Panel in the application
+12. Go to /manager/login-form.php and login, username can be charlie or samuel, password is same as the username.
+
+13. Due to demo reason, 2FA is not adopted here.
+
+14. You can work around the vailate the products
+
+----
+# Monitoring the database
+1. using port 9090(?)
+
+2. using Grafana login (port 9876) 
+```
+Username: admin
+Password: admin
+```
+
+( to be fill in...)
 
 
-9. shut down by press control-C
+----
+# Shuting down the application
+1. shut down by press control-C
 ---
-# Run linux script reference
 
-Add command on Dockerfile
 
-e.g. 
 
-edit mysql root password,
-
-force password changes, etc.
-
-[https://ithelp.ithome.com.tw/articles/10191016?sc=hot](https://ithelp.ithome.com.tw/articles/10191016?sc=hot)
 
 ----
 References :
@@ -55,4 +87,8 @@ ONLINE_SALES_WEBSITE
 
 Simple blog (for PHP PDO)
 [https://github.com/dcblogdev/simple-blog-part-1-build](https://github.com/dcblogdev/simple-blog-part-1-build)
+
+LAMP Stack with docker
+[https://polyu-comp.gitbook.io/lamp-stack-with-docker/](https://polyu-comp.gitbook.io/lamp-stack-with-docker/)
+
 
