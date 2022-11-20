@@ -229,7 +229,7 @@ class model
         if ($verify_password == $hashedPassword) {
             $loginPassword = 1;
         }
-        if ($loginPassword == 1 && $_SESSION['attempt'] < 3) {
+        if ($loginPassword == 1 && $_SESSION['attempt'] < 4) {
             $_SESSION["username"] = $loginUserResult[0]["username"];
             $_SESSION["2fa"] = FALSE;
             $_SESSION["user_id"] =  $loginUserResult[0]["id"];
@@ -242,7 +242,7 @@ class model
             //require_once $loginurl;
             header("Location: $loginurl");
         }
-        else if ($loginPassword == 1 && $_SESSION['attempt'] > 2){
+        else if ($loginPassword == 1 && $_SESSION['attempt'] > 4){
                 $loginStatus = "Attempt limit reach please wait 10 seconds";
                 //$_SESSION['locked'] = time();
         }
