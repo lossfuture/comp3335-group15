@@ -91,8 +91,11 @@ URL: http://prometheus:9090/
 
 
 4.1 Enter 7362 
+
 4.2 click Load button
+
 4.3 Select prometheus
+
 4.4 Click Import
 
 4.5 Finally, your dashboard will be imported with real-time updates of MySQL.
