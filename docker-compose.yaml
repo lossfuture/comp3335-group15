@@ -28,6 +28,7 @@ services:
             - "9090:9090"
         volumes:
             - ./promconf/prometheus.yml:/etc/prometheus/prometheus.yml
+            - ./promconf/alertrules.yml:/etc/prometheus/alertrules.yml
     mysqlexporter:
         image: prom/mysqld-exporter
         ports:
