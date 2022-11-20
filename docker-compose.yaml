@@ -49,6 +49,13 @@ services:
             PMA_PASSWORD: "Ip38w#*5tA%hwJLy"
         depends_on:
             - db
+     alertmanager:
+        image: prom/alertmanager:v0.12.0
+        ports:
+            - 9093:9093
+        volumes:
+            - ./promconf/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+           # - ./promconf/alertrules.yml
             
 volumes:
     persistent:
