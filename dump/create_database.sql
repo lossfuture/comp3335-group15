@@ -137,6 +137,10 @@ CREATE TABLE `verification_code` (
    PRIMARY KEY (`id`)) 
 ENGINE = InnoDB;
 
+CREATE TABLE `email_verfiication` (
+  `id` INT NOT NULL AUTO_INCREMENT, `token` TEXT NOT NULL , `expried_date` DATETIME NOT NULL , `user_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
 CREATE USER 'admin1'@'%' IDENTIFIED BY '1115597898AAAb';
 GRANT DELETE, SELECT ON comp3335.users TO 'admin1'@'%';
 GRANT DELETE, INSERT, SELECT ON comp3335.products TO 'admin1'@'%';
