@@ -21,10 +21,12 @@ if ($loginResult){
     echo $_POST["verification_code"];
     echo"token not correct, please input again.";
 }
+/* 
 echo $_POST["verification_code"];
 echo '<pre>';
 var_dump($_SESSION);
 echo '</pre>';
+*/
 }
 
 ?>
