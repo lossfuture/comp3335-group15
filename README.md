@@ -13,7 +13,7 @@ https://youtu.be/Hb4HQo_mysI
 ----
 # Setup the application
 
-1. Clone the repository
+1. Clone the repository using the URL
 ```
 git clone https://github.com/lossfuture/comp3335-group15/
 ```
