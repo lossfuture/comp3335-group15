@@ -23,7 +23,10 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `salt`) VALUES
 (2, 'banana', 'banana@example.com', '4e5bc7a29d29da8742ab754ed8fbce3fda77c0cf29f63243493f881985f79171', 1532),
 (3, 'car', 'car@example.com', '0e63f4bb4b0ae5781b72e5f499a44ac6985d5b3c6125948894c92a44bada39c6', 4325),
 (4, 'dog', 'dog@example.com', '4c54d6b49809a2c00c3a0582dfc72af32f31565210f55f42700c57bfcfe9bc94', 2232),
-(5, 'edge', 'edge@example.com', 'fefa51fda7da09ac4fa4b910b201533e1b1de36d6dc72d8a4ce8d376b64a4aa7', 3232);
+(5, 'edge', 'edge@example.com', 'fefa51fda7da09ac4fa4b910b201533e1b1de36d6dc72d8a4ce8d376b64a4aa7', 3232),
+(6, 'polyu_20', 'harryyuen3+polyu20@gmail.com', '979def69666721f9e48a2afd0bd4bd71c0170ec1d4e27c62c6f7e5aa5d43f402', '11'),
+(7, 'polyu_21', 'harryyuen3+polyu21@gmail.com', 'f93c8d6f637b24b258bf2f7573fbe2d509b7a994713701d7e0f28e0f3d5e4b12', '9176');
+
 
 
 
