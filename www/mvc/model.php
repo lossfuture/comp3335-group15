@@ -101,7 +101,7 @@ class model
         }else{
             return false;
         }
-
+    }
         
     public function isMemberExists($email)
     {
