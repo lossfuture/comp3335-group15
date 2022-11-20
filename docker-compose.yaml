@@ -49,7 +49,7 @@ services:
             PMA_PASSWORD: "Ip38w#*5tA%hwJLy"
         depends_on:
             - db
-     alertmanager:
+    alertmanager:
         image: prom/alertmanager:v0.12.0
         ports:
             - 9093:9093
