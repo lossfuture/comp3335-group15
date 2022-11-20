@@ -1,4 +1,5 @@
 <?php 
+session_start();
 if (!isset($_COOKIE["user"])){
 	header("Location:login-form.php");
   exit;
@@ -7,7 +8,7 @@ if ($_SESSION["2fa"]==FALSE){
   header("Location:2fa.php");
   exit;
 }
-session_start();
+
 require "../connStudent.php";
     if(isset($_POST["add_to_cart"]))
     {
