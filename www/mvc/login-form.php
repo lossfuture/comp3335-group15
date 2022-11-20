@@ -62,7 +62,7 @@ if (! empty($_POST["login-btn"])) {
             <input class="sign-up-btn" type="submit" name="login-btn"
                 id="login-btn" value="Login">
         </div>
-
+         <a href="email-verify.php"> Verify your email here</a>
     </form>
 </div>
 </div>
