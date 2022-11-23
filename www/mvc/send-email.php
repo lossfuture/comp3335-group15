@@ -46,7 +46,7 @@ function send_email($email,$verification_code){
             $mail->Username = 'harryyuen3@gmail.com';
  
             //SMTP password
-            $mail->Password = 'srorciguvijngmny';
+            $mail->Password = '';//use your own token
  
             //Enable TLS encryption;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
